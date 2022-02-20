@@ -7,7 +7,8 @@
 ![image](https://user-images.githubusercontent.com/32596517/150505335-07dc86a1-adf5-466e-b5df-9d2e4d933bae.png)
 
 ### 사전 정보
-js-trello와 이어져 있는 작업이다. js-trello의 구현을 베이스로 작업한다.
+js-trello와 이어져 있는 작업이다. js-trello의 구현을 베이스로 작업한다. <br />
+js-trello에서의 indexedDB 대신 mysql database를 사용한다.
 
 ### 1. 추가 UI 작업
 - 상단에 로그인, 회원가입 버튼이 존재한다. (로그인된 유저는 로그아웃 버튼이 존재한다.)
