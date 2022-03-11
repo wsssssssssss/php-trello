@@ -4,13 +4,16 @@ ul, li{list-style: none;}
 a{text-decoration: none; color: inherit;}
 i{color: #000;}
 .flex{display: flex;}
+.grid{display: grid;}
 .none{display: none;}
 
 #root{position: relative;}
 
 
-header{width: 100%; height: 50px; line-height: 50px; background: #eee;}
-header h3{text-align: center;}
+header{width: 100%; height: 50px; line-height: 50px; padding: 0 50px; background: #eee; justify-content: flex-end; align-items: center; gap: 20px;}
+header button{border: none; height: 35px; padding: 2px 5px; border-radius: 5px; outline: none; cursor: pointer; transition: .3s;}
+header button:hover{background: #333; color: #fff; transition: .3s;}
+header button:hover a{color: #fff; transition: .3s;}
 
 .container{padding: 15px 10px; align-items: flex-start;}
 .container .plus{width: 25px; height: 25px; line-height: 21px; text-align: center; font-size: 30px; margin: 0 3px;}
@@ -80,8 +83,27 @@ header h3{text-align: center;}
 .popup .btns .card_delete:hover{background: rgb(50, 67, 219); transition: .3s;}
 
 
+/* 회원가입 팝업 */
+.popup .join_popup{width: 400px; height: 500px; padding: 20px 15px; border-radius: 10px; background: #fff; flex-direction: column;}
+.popup .join_popup .title{width: 100%; line-height: 50px; padding: 5px 20px;}
+
+.popup .join_popup .content{width: 90%; margin: 0 auto; flex-direction: column;}
+.popup .join_popup .content p{margin-bottom: 5px; font-size: 17px;}
+.popup .join_popup .content input{line-height: 35px; padding: 5px 10px; font-size: 17px;}
+
 .popup .btns .join_btn{background: rgb(90, 104, 237); color: #fff; transition: .3s;}
 .popup .btns .join_btn:hover{background: rgb(50, 67, 219); transition: .3s;} 
+
+/* 로그인 팝업 */
+.popup .login_popup{width: 400px; height: 350px; padding: 20px 15px; border-radius: 10px; background: #fff; flex-direction: column;}
+.popup .login_popup .title{width: 100%; line-height: 50px; padding: 5px 20px;}
+
+.popup .login_popup .content{width: 90%; margin: 0 auto; flex-direction: column;}
+.popup .login_popup .content p{margin-bottom: 5px; font-size: 17px;}
+.popup .login_popup .content input{line-height: 35px; padding: 5px 10px; font-size: 17px;}
+
+.popup .btns .login_btn{background: rgb(90, 104, 237); color: #fff; transition: .3s;}
+.popup .btns .login_btn:hover{background: rgb(50, 67, 219); transition: .3s;} 
 
 
 

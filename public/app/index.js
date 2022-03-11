@@ -2,8 +2,14 @@ const root = document.querySelector("#root");
 const container = document.querySelector("#root .container");
 const popup = document.querySelectorAll("#root .popup");
 
+const joinBtn = document.querySelector("#root header .join_btn");
+const loginBtn = document.querySelector("#root header .login_btn");
+
 const insertListForm = document.querySelector("#root #insert_list_popup form");
 const insertCardForm = document.querySelector("#root #insert_card_popup form");
+
+const joinForm = document.querySelector("#root #join_popup form");
+const loginForm = document.querySelector("#root #login_popup form");
 
 const cardPopupImgBtn = document.querySelector("#root #card_popup .insert_img_btn");
 const cardPopupImgDeleteBtn = document.querySelector("#root #card_popup .img_delete");
@@ -15,6 +21,8 @@ let list_idx = 0;
 let db = null;
 let cardTitleChg = false;
 let cardContentChg = false;
+
+let login = false;
 
 
 const readonlyList = () => {
@@ -58,6 +66,9 @@ const popupClose = () => {
 }
 
 const render = () => {
+    if(!login) {
+        return false;
+    }
     [...container.children].forEach( (ele) => {
         if(ele.classList.contains('list')){
             ele.remove();
@@ -638,6 +649,50 @@ insertCardForm.addEventListener('submit', onCardSbm);
 
 // 카드 팝업의 이미지 변경 or 추가 할때 실행
 cardPopupImgBtn.addEventListener('change', onChgCardImg);
+
+const joinBtnClickHandle = () => {
+    popupOpen("join_popup");
+};
+
+const loginBtnClickHandle = () => {
+    popupOpen("login_popup");
+};
+
+const joinFormHandle = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    if(form.id.value === "" || form.password.value === "" || form.passwordc.value === "") {
+        alert("모든 항목을 입력해주세요");
+        return false;
+    }
+
+    if(form.password.value !== form.passwordc.value) {
+        alert("비밀번호가 일치 하지 않습니다.");
+        return false;
+    }
+
+    e.target.submit();
+};
+
+const loginFormHandle = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    if(form.id.value === "" || form.password.value === "") {
+        alert("모든 항목을 입력해주세요");
+        return false;
+    }
+
+    e.target.submit();
+};
+
+joinBtn.addEventListener("click", joinBtnClickHandle);
+loginBtn.addEventListener("click", loginBtnClickHandle);
+
+joinForm.addEventListener("submit", joinFormHandle);
+loginForm.addEventListener("submit", loginFormHandle);
+
 
 window.onload = _ => {
     const request = indexedDB.open('trello', 1);
